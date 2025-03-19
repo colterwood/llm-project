@@ -68,6 +68,18 @@ This model is a fine-tuned version of [distilbert-base-uncased-finetuned-sst-2-e
 
 ---
 
-### **🚀 Next Steps**
-📌 **Paste this version into your model card and save.**  
-📌 **If anything still looks bad, let me know, and we’ll tweak it!** 🔥
+## Performance Metrics  
+
+- **Best Test Accuracy:** 73.44%  
+- **Evaluation Metrics Used:** Accuracy  
+- **Generalization Settings:**  
+  - **Dropout:** 0.2  
+  - **Learning Rate:** 5e-5  
+  - **Batch Size:** 16  
+  - **Warmup Steps:** 500  
+
+---
+
+## Relevant Links  
+
+- **[Hugging Face Model Page](https://huggingface.co/colterwood/best_distilbert_model)**  

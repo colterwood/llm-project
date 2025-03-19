@@ -3,47 +3,71 @@ library_name: transformers
 license: apache-2.0
 base_model: distilbert-base-uncased-finetuned-sst-2-english
 tags:
-- generated_from_trainer
+  - sentiment-analysis
+  - fine-tuned
+  - transformers
+  - generated_from_trainer
 model-index:
-- name: best_distilbert_model
-  results: []
+  - name: best_distilbert_model
+    results: []
 ---
 
-<!-- This model card has been generated automatically according to the information the Trainer had access to. You
-should probably proofread and complete it, then remove this comment. -->
+# **best_distilbert_model**
 
-# best_distilbert_model
+## **Model Description**
+This model is a fine-tuned version of [distilbert-base-uncased-finetuned-sst-2-english](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english) on the [Pitchfork Album Reviews dataset](https://huggingface.co/datasets/statworx/pitchfork_album_reviews). The model is designed to classify sentiment in album reviews as **positive (1) or negative (0).**
 
-This model is a fine-tuned version of [distilbert-base-uncased-finetuned-sst-2-english](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english) on an unknown dataset.
+---
 
-## Model description
+## **Intended Uses & Limitations**
+### ✅ **Intended Use**
+- **Primary Task:** Sentiment analysis for album reviews.
+- **Dataset:** Fine-tuned on **19,305 album reviews** (binary labels: **1 = Positive, 0 = Negative**).
+- **Ideal for:** Music review sentiment analysis.
 
-More information needed
+### ⚠️ **Limitations**
+- May **not generalize well** to non-music-related reviews.
+- Optimized for **binary sentiment classification**, not multi-class sentiment.
 
-## Intended uses & limitations
+---
 
-More information needed
+## **Training & Evaluation Data**
+### **Dataset Details**
+- **Dataset Source:** [Pitchfork Album Reviews](https://huggingface.co/datasets/statworx/pitchfork_album_reviews)  
+- **Training Set Size:** 19,305 reviews  
+- **Test Set Size:** 1,566 reviews  
+- **Labels:** Binary classification (**0 = Negative, 1 = Positive**)  
 
-## Training and evaluation data
+### **Evaluation Metrics**
+- **Best Test Accuracy:** **73.44%**  
+- **Best Generalization Settings:**  
+  - **Dropout:** `0.2`  
+  - **Learning Rate:** `5e-5`  
+  - **Batch Size:** `16`  
+  - **Warmup Steps:** `500`  
 
-More information needed
+---
 
-## Training procedure
+## **Training Procedure**
+### **Hyperparameters Used**
+- **Learning Rate:** `5e-5`
+- **Train Batch Size:** `16`
+- **Eval Batch Size:** `16`
+- **Epochs:** `2`
+- **Weight Decay:** `0.01`
+- **Dropout:** `0.2`
+- **Optimizer:** AdamW `(betas=(0.9, 0.999), epsilon=1e-08)`
+- **LR Scheduler:** `Linear`
+- **Warmup Steps:** `500`
 
-### Training hyperparameters
+### **Framework Versions**
+- **Transformers:** `4.48.3`
+- **PyTorch:** `2.6.0+cu124`
+- **Datasets:** `3.4.1`
+- **Tokenizers:** `0.21.1`
 
-The following hyperparameters were used during training:
-- learning_rate: 5e-05
-- train_batch_size: 8
-- eval_batch_size: 8
-- seed: 42
-- optimizer: Use OptimizerNames.ADAMW_TORCH with betas=(0.9,0.999) and epsilon=1e-08 and optimizer_args=No additional optimizer arguments
-- lr_scheduler_type: linear
-- num_epochs: 3.0
+---
 
-### Framework versions
-
-- Transformers 4.48.3
-- Pytorch 2.6.0+cu124
-- Datasets 3.4.1
-- Tokenizers 0.21.1
+### **🚀 Next Steps**
+📌 **Paste this version into your model card and save.**  
+📌 **If anything still looks bad, let me know, and we’ll tweak it!** 🔥

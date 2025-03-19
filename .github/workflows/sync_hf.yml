@@ -1,0 +1,24 @@
+name: Sync Hugging Face Model
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Install Hugging Face CLI
+        run: pip install huggingface_hub
+
+      - name: Push model to Hugging Face
+        run: |
+          huggingface-cli login --token ${{ secrets.HF_TOKEN }}
+          git lfs install
+          git add .
+          git commit -m "Sync model update"
+          git push https://huggingface.co/colterwood/best_distilbert_model main
